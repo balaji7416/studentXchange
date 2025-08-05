@@ -12,6 +12,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import MobileMenu from "./NavComponents/MobileMenu";
 
 function MobileNavbar() {
   // State for toggling menu and location modal
@@ -49,6 +50,9 @@ function MobileNavbar() {
           <Logo text="Olx" />
         </div>
 
+        {/* Menu */}
+        <MobileMenu onClose={() => setShowMenu(false)} showMenu={showMenu} />
+
         {/* Location selector */}
         <div className={clsx("flex relative", "items-center", "space-x-3")}>
           <span>
@@ -56,14 +60,13 @@ function MobileNavbar() {
           </span>
 
           {/* Location modal or selected location */}
-          {showLocationMenu ? (
-            <MobileLocationPage
-              setlocation={setlocation}
-              onClose={() => setShowLocationMenu(false)}
-            />
-          ) : (
-            <div>{location || "Select Location"}</div>
-          )}
+          <MobileLocationPage
+            setlocation={setlocation}
+            showLocationMenu={showLocationMenu}
+            onClose={() => setShowLocationMenu(false)}
+          />
+
+          <div>{location || "Select Location"}</div>
 
           {/* Toggle location modal */}
           <button onClick={() => setShowLocationMenu((prev) => !prev)}>

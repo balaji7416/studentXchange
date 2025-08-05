@@ -10,14 +10,18 @@ const places = [
   },
 ];
 
-function MobileLocationPage({ setlocation, onClose }) {
+function MobileLocationPage({ setlocation, showLocationMenu, onClose }) {
   return (
     <div
       className={clsx(
         "flex flex-col",
         "absolute top-10 right-0",
         "w-screen",
-        "bg-yellow-50"
+        "bg-yellow-50",
+        showLocationMenu
+          ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
+          : "opacity-0 -translate-y-10 scale-95 pointer-events-none",
+        "transition-all ease-out duration-500"
       )}
     >
       {places.map(({ name, id }) => (
