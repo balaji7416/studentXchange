@@ -25,7 +25,7 @@ function Location({ styles, setlocation }) {
 
   return (
     <div className={clsx(styles, "relative")}>
-      <div className="flex">
+      <div className="flex border border-black rounded-md">
         <input
           type="text"
           onChange={(e) => setLocation(e.target.value)}

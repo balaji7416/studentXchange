@@ -7,8 +7,9 @@ function Searchbar({ styles = "" }) {
     <div
       className={clsx(
         styles,
-        "flex items-center focus-within:ring-2 focus-within:ring-blue-400 rounded-md",
-        "transition-all duration-300 ease-in-out"
+        "flex items-center focus-within:border-opacity-0 focus-within:ring-2 focus-within:ring-blue-400 rounded-md",
+        "transition-all duration-300 ease-in-out",
+        "border border-black"
       )}
     >
       <input
