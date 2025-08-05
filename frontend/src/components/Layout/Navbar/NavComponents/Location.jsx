@@ -44,8 +44,11 @@ function Location({ styles, setlocation }) {
 
       <div
         className={clsx(
-          "absolute  opacity-0 flex flex-col items-center justify-center transition-all ease-out duration-300",
-          clicked ? "opacity-100 visible" : "opacity-0 invisible"
+          "absolute flex flex-col items-center justify-center",
+          clicked
+            ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
+            : "opacity-0 -translate-y-10 scale-95 pointer-events-none",
+          "transition-all ease-out duration-500"
         )}
       >
         {places.map(({ name, id }) => (

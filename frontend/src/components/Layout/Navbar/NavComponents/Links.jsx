@@ -6,7 +6,11 @@ import {
   faHeart,
   faUser,
   faCommentDots,
+  faChevronDown,
+  faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import DesktopMenu from "./DesktopMenu";
 
 const links = [
   {
@@ -28,6 +32,7 @@ const links = [
 ];
 
 function Links() {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div
       className={clsx(
@@ -39,6 +44,20 @@ function Links() {
           {link.label}
         </Link>
       ))}
+      <button
+        onClick={() => setShowMenu((prev) => !prev)}
+        className={clsx("relative")}
+      >
+        {showMenu ? (
+          <FontAwesomeIcon icon={faChevronDown} />
+        ) : (
+          <FontAwesomeIcon icon={faChevronUp} />
+        )}
+      </button>
+      <div className="absolute top-10 right-0 w-80">
+        <DesktopMenu onClose={() => setShowMenu(false)} showMenu={showMenu} />
+      </div>
+
       <button className="text-lg rounded-md bg-gray-200 px-5 py-2">Sell</button>
     </div>
   );
