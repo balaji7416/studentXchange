@@ -2,7 +2,7 @@ import Searchbar from "./NavComponents/Searchbar";
 import Logo from "./NavComponents/Logo";
 import Links from "./NavComponents/Links";
 import Location from "./NavComponents/Location";
-
+import DesktopCatagories from "../catagories_bar/DesktopCatagories";
 function DesktopNavbar() {
   return (
     <>
@@ -14,6 +14,7 @@ function DesktopNavbar() {
           <Links />
         </div>
       </nav>
+      <DesktopCatagories />
     </>
   );
 }

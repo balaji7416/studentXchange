@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import Logo from "../NavComponents/Logo";
+import Logo from "./Logo";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
