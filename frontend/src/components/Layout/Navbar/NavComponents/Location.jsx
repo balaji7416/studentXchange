@@ -13,6 +13,16 @@ function Location({ styles, setlocation }) {
     setlocation(e.target.textContent);
   };
 
+  const places = [
+    { name: "Amber", id: 1 },
+    { name: "Diamond", id: 2 },
+    { name: "Opal", id: 3 },
+    {
+      name: "AquaMarine",
+      id: 4,
+    },
+  ];
+
   return (
     <div className={clsx(styles, "relative")}>
       <div className="flex">
@@ -38,13 +48,13 @@ function Location({ styles, setlocation }) {
           clicked ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        {["Delhi", "mumbai", "chennai"].map((loc) => (
+        {places.map(({ name, id }) => (
           <div
-            key={loc}
+            key={id}
             onClick={handleClick}
             className="p-2 bg-gray-50 border-b-2 border-gray-300 rounded-r-md hover:bg-gray-200 cursor-pointer w-[300px]"
           >
-            {loc}
+            {name}
           </div>
         ))}
       </div>
