@@ -3,14 +3,13 @@ import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-function Location({ styles, setlocation }) {
+function Location({ styles }) {
   const [Location, setLocation] = useState("");
   const [clicked, setClicked] = useState(false);
 
   const handleClick = (e) => {
     setLocation(e.target.textContent);
     setClicked(false);
-    setlocation(e.target.textContent);
   };
 
   const places = [
@@ -25,18 +24,29 @@ function Location({ styles, setlocation }) {
 
   return (
     <div className={clsx(styles, "relative")}>
-      <div className="flex border border-black rounded-md">
+      <div
+        className={clsx(
+          "flex",
+          "border border-black rounded-md max-w-sm",
+          "mx-2",
+          ""
+        )}
+      >
         <input
           type="text"
           onChange={(e) => setLocation(e.target.value)}
           value={Location}
-          className="p-3 rounded-l-md focus:outline-none "
+          className={clsx(
+            "p-3 rounded-l-md focus:outline-none",
+            "bg-white",
+            ""
+          )}
           placeholder="location"
         />
 
         <button
           onClick={() => setClicked(!clicked)}
-          className="bg-white text-black p-3 rounded-r-md " //make this button to occupy the full height of the input field
+          className={clsx("bg-white text-black p-3 rounded-r-md ")}
         >
           <FontAwesomeIcon icon={clicked ? faChevronDown : faChevronUp} />
         </button>
@@ -44,7 +54,7 @@ function Location({ styles, setlocation }) {
 
       <div
         className={clsx(
-          "absolute flex flex-col items-center justify-center",
+          "absolute flex flex-col items-center justify-center z-50",
           clicked
             ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
             : "opacity-0 -translate-y-10 scale-95 pointer-events-none",

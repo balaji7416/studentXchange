@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import Searchbar from "./NavComponents/Searchbar";
-import Logo from "./NavComponents/Logo";
-import Links from "./NavComponents/Links";
-import MobileLocationPage from "./NavComponents/MobileLocationPage";
+import Searchbar from "../../../shared/Searchbar";
+import Logo from "../../../shared/Logo";
+import MobileLocationPage from "./navComponents/MobileLocation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronUp,
@@ -12,7 +11,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import MobileMenu from "./NavComponents/MobileMenu";
+import MobileMenu from "./navComponents/MobileMenu";
 
 function MobileNavbar() {
   // State for toggling menu and location modal
@@ -47,7 +46,7 @@ function MobileNavbar() {
               <FontAwesomeIcon icon={faBars} />
             )}
           </button>
-          <Logo text="Olx" />
+          <Logo text="ISMart" />
         </div>
 
         {/* Menu */}

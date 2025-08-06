@@ -44,10 +44,16 @@ const catagories = [
 
 function DesktopCatagories() {
   return (
-    <div className={clsx("w-screen py-2 px-3 mt-1", " shadow-md")}>
+    <div className={clsx("w-full py-2 px-3", "shadow-sm", "mt-[92px]")}>
       <div className={clsx("flex items-center justify-center space-x-10")}>
         {catagories.map(({ name, id, icon, href }) => (
-          <div className={clsx("flex items-center gap-2 group")} key={id}>
+          <div
+            className={clsx(
+              "flex items-center gap-2 group hover:translate-y-1",
+              "transition-all duration-600"
+            )}
+            key={id}
+          >
             <FontAwesomeIcon
               icon={icon}
               className="text-blue-300 group-hover:text-black"

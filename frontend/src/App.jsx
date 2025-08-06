@@ -1,9 +1,9 @@
-import Navbar from "./components/Layout/header/Navbar/Navbar";
+import ResponsiveLayout from "./components/layout/ResponsiveLayout";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <ResponsiveLayout />
     </>
   );
 }

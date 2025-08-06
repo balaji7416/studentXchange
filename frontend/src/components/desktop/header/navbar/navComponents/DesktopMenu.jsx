@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import Logo from "./Logo";
+import Logo from "../../../../shared/Logo";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -45,14 +45,16 @@ const menuOptions = [
   },
 ];
 
-function MobileMenu({ onClose, showMenu }) {
+function DesktopMenu({ onClose, showMenu }) {
   return (
     <div>
       <div
         className={clsx(
-          "bg-white w-full fixed top-0 left-0 z-50 h-screen",
+          "bg-white  z-50",
           "flex flex-col items-center space-y-5",
-          "p-3",
+          "p-5 w-56",
+          "rounded-md shadow-md",
+          "absolute top-10",
           showMenu
             ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
             : "opacity-0 -translate-y-10 scale-95 pointer-events-none",
@@ -63,7 +65,7 @@ function MobileMenu({ onClose, showMenu }) {
           <button onClick={() => onClose()}>
             <X />
           </button>
-          <Logo text="Olx" />
+          <Logo text="ISMart" />
         </div>
 
         <div
@@ -81,14 +83,14 @@ function MobileMenu({ onClose, showMenu }) {
           >
             <div
               className={clsx(
-                "w-20 h-20 rounded-full bg-gray-100",
+                "w-10 h-10 rounded-full bg-gray-100",
                 "flex justify-center items-center",
                 "self-start"
               )}
             >
-              <FontAwesomeIcon icon={faUser} className={clsx("text-3xl")} />
+              <FontAwesomeIcon icon={faUser} className={clsx("text-2xl")} />
             </div>
-            <div className={clsx("text-bold text-2xl", "mr-10 mt-5")}>
+            <div className={clsx("text-bold text-xl", "mr-10 mt-3")}>
               UserName
             </div>
           </div>
@@ -118,4 +120,4 @@ function MobileMenu({ onClose, showMenu }) {
   );
 }
 
-export default MobileMenu;
+export default DesktopMenu;
