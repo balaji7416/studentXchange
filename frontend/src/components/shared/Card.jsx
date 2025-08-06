@@ -9,7 +9,7 @@ function Card({ imgSrc, alt, title, price, location }) {
         "flex flex-col ",
 
         "md:h-[270px] md:w-[210px]",
-        "h-[250px] w-[170px]",
+        "h-[250px] w-[160px]",
 
         "p-2 pt-4",
         "shadow-md rounded-md",
@@ -28,12 +28,12 @@ function Card({ imgSrc, alt, title, price, location }) {
       <div className="flex flex-col items-start w-full h-1/3 p-1 mt-1">
         <div className="font-bold text-xl w-full">{price}</div>
         <div className="">{title}</div>
-        <div className={clsx("self-end opacity-40")}>{location}</div>
+        <div className={clsx("self-end text-sm opacity-40")}>{location}</div>
       </div>
 
       <button
         className={clsx(
-          "absolute top-1 right-1 z-5",
+          "absolute top-2 right-2 z-5",
           "bg-white p-1 w-6 h-6 rounded-full",
           "shadow-md",
           "flex justify-center items-center"

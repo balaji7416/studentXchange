@@ -75,8 +75,9 @@ function MainFeed() {
       <div className={clsx("px-4 lg:px-8 xl:px-14")}>
         <div
           className={clsx(
-            "grid  gap-5",
-            "grid-cols-[repeat(auto-fit,_minmax(160px,_1fr))]",
+            "grid",
+            "gap-5",
+            "grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))]",
             "md:grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]",
             "mx-auto",
             "max-w-screen-xl",
