@@ -7,7 +7,11 @@ function Card({ imgSrc, alt, title, price, location }) {
     <div
       className={clsx(
         "flex flex-col ",
-        "h-[270px] w-[210px] p-2 pt-4",
+
+        "md:h-[270px] md:w-[210px]",
+        "h-[250px] w-[170px]",
+
+        "p-2 pt-4",
         "shadow-md rounded-md",
         "relative",
         "hover:scale-[1.003]"

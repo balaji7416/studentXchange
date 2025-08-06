@@ -1,6 +1,6 @@
 import DesktopNavbar from "../desktop/header/navbar/DesktopNavbar";
-import HeroSection from "../desktop/header/HeroSection";
-import MainFeed from "../desktop/main/MainFeed";
+import HeroSection from "../shared/HeroSection";
+import MainFeed from "../shared/MainFeed";
 import DesktopCatagories from "../desktop/header/CategoryBar";
 import clsx from "clsx";
 

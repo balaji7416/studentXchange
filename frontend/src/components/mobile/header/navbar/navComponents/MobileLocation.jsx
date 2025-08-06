@@ -16,7 +16,7 @@ function MobileLocationPage({ setlocation, showLocationMenu, onClose }) {
       className={clsx(
         "flex flex-col",
         "absolute top-10 right-0",
-        "w-screen",
+        "w-[50vw] rounded-md",
         "bg-yellow-50",
         showLocationMenu
           ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
@@ -29,9 +29,11 @@ function MobileLocationPage({ setlocation, showLocationMenu, onClose }) {
           key={id}
           className={clsx(
             "py-2 px-5",
-            "",
+            "rounded-md",
             "border-b-2",
-            "bg-gray-50 hover:bg-gray-100"
+            "bg-gray-50 hover:bg-gray-200",
+            "",
+            "transition-all ease-in-out duration-100"
           )}
           onClick={() => {
             setlocation(name);

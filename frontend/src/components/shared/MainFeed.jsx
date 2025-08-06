@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Card from "../../shared/Card";
+import Card from "./Card";
 
 const tempFeed = [
   {
@@ -75,7 +75,9 @@ function MainFeed() {
       <div className={clsx("px-4 lg:px-8 xl:px-14")}>
         <div
           className={clsx(
-            "grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-5",
+            "grid  gap-5",
+            "grid-cols-[repeat(auto-fit,_minmax(160px,_1fr))]",
+            "md:grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]",
             "mx-auto",
             "max-w-screen-xl",
             "place-items-center"

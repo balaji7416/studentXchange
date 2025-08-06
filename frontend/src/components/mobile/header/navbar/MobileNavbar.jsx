@@ -25,10 +25,10 @@ function MobileNavbar() {
         "fixed",
         "top-0",
         "left-0",
-        "z-100",
+        "z-50",
         "w-full",
         "bg-gray-100",
-        "p-3",
+        "px-1",
         "shadow-md"
       )}
     >

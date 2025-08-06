@@ -49,16 +49,13 @@ function DesktopCatagories() {
         {catagories.map(({ name, id, icon, href }) => (
           <div
             className={clsx(
-              "flex items-center gap-2 group hover:translate-y-1",
+              "flex items-center gap-2 ",
               "transition-all duration-600"
             )}
             key={id}
           >
-            <FontAwesomeIcon
-              icon={icon}
-              className="text-blue-300 group-hover:text-black"
-            />
-            <Link to={href} className={clsx("group-hover:text-blue-400")}>
+            <FontAwesomeIcon icon={icon} className="text-blue-300" />
+            <Link to={href} className={clsx("hover:text-blue-400")}>
               {name}
             </Link>
           </div>
