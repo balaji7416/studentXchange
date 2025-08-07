@@ -19,7 +19,7 @@ const getTimeAgo = (postedDate) => {
   for (const interval of intervals) {
     const count = Math.floor(seconds / interval.seconds);
     if (count > 0) {
-      return `${count} ${interval.label} ${count > 1 ? "s" : ""} ago`;
+      return `${count} ${interval.label}${count > 1 ? "s" : ""} ago`;
     }
   }
 
@@ -41,7 +41,7 @@ function Card({
         "flex flex-col ",
 
         "md:h-[270px] md:w-[210px]",
-        "h-[250px] w-[160px]",
+        "h-[270px] w-[160px]",
 
         "p-2 pt-4",
         "border-2 border-gray-200 rounded-md",
@@ -49,27 +49,28 @@ function Card({
         "hover:scale-[1.003]"
       )}
     >
-      <div className={clsx("", "w-full h-2/3 p-1")}>
+      <div className={clsx("w-full h-2/3 p-1")}>
         <img
           src={imgSrc}
           alt={alt}
           className={clsx("object-contain w-full h-full rounded-md")}
         ></img>
       </div>
+      <div className="h-1/3">
+        <div className="flex flex-col items-start w-full p-1 mt-1">
+          <div className="font-bold text-xl w-full">{price}</div>
+          <div className="text-sm font-semibold opacity-40">{title}</div>
+        </div>
 
-      <div className="flex flex-col items-start w-full p-1 mt-1">
-        <div className="font-bold text-xl w-full">{price}</div>
-        <div className="text-sm font-semibold opacity-40">{title}</div>
-      </div>
-
-      <div
-        className={clsx(
-          "flex items-center justify-between w-full p-1",
-          "text-gray-500 text-xs"
-        )}
-      >
-        <div className="text-sm font-semibold opacity-40">{location}</div>
-        <div>{date}</div>
+        <div
+          className={clsx(
+            "flex items-center justify-between w-full p-1",
+            "text-gray-500 text-xs"
+          )}
+        >
+          <div className="text-sm font-semibold opacity-40">{location}</div>
+          <div>{date}</div>
+        </div>
       </div>
 
       <button

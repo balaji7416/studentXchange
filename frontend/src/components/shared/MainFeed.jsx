@@ -63,7 +63,7 @@ const tempFeed = [
     price: "$700",
     location: "kolkata",
     id: 7,
-    postedDate: "2017-10-07T12:00:00Z",
+    postedDate: "2024-10-07T12:00:00Z",
   },
 ];
 
