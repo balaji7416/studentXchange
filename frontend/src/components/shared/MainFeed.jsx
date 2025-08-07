@@ -9,6 +9,7 @@ const tempFeed = [
     price: "$100",
     location: "bangalore",
     id: 1,
+    postedDate: "2023-10-01T12:00:00Z",
   },
   {
     imgSrc: "/img2.jpg",
@@ -17,6 +18,7 @@ const tempFeed = [
     price: "$300",
     location: "mumbai",
     id: 2,
+    postedDate: "2022-10-02T12:00:00Z",
   },
   {
     imgSrc: "/img3.jpg",
@@ -25,6 +27,7 @@ const tempFeed = [
     price: "$500",
     location: "chennai",
     id: 3,
+    postedDate: "2023-10-03T12:00:00Z",
   },
   {
     imgSrc: "/img4.png",
@@ -33,6 +36,7 @@ const tempFeed = [
     price: "$700",
     location: "kolkata",
     id: 4,
+    postedDate: "2015-10-04T12:00:00Z",
   },
   {
     imgSrc: "/img4.png",
@@ -41,6 +45,7 @@ const tempFeed = [
     price: "$700",
     location: "kolkata",
     id: 5,
+    postedDate: "2010-10-05T12:00:00Z",
   },
   {
     imgSrc: "/img4.png",
@@ -49,6 +54,7 @@ const tempFeed = [
     price: "$700",
     location: "kolkata",
     id: 6,
+    postedDate: "2016-10-06T12:00:00Z",
   },
   {
     imgSrc: "/img4.png",
@@ -57,6 +63,7 @@ const tempFeed = [
     price: "$700",
     location: "kolkata",
     id: 7,
+    postedDate: "2017-10-07T12:00:00Z",
   },
 ];
 
@@ -66,7 +73,9 @@ function MainFeed() {
       <div
         className={clsx(
           "flex items-center justify-center",
-          "text-2xl font-bold",
+          " font-semibold",
+          "md:text-xl",
+          "lg:text-2xl",
           "mb-5"
         )}
       >
@@ -84,16 +93,19 @@ function MainFeed() {
             "place-items-center"
           )}
         >
-          {tempFeed.map(({ imgSrc, alt, title, price, location, id }) => (
-            <Card
-              imgSrc={imgSrc}
-              alt={alt}
-              title={title}
-              price={price}
-              location={location}
-              id={id}
-            />
-          ))}
+          {tempFeed.map(
+            ({ imgSrc, alt, title, price, location, id, postedDate }) => (
+              <Card
+                imgSrc={imgSrc}
+                alt={alt}
+                title={title}
+                price={price}
+                location={location}
+                id={id}
+                postedDate={postedDate}
+              />
+            )
+          )}
         </div>
       </div>
     </>
