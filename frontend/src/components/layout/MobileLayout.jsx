@@ -1,6 +1,7 @@
 import MobileNavbar from "../mobile/header/navbar/MobileNavbar";
 import HeroSection from "../shared/HeroSection";
 import MainFeed from "../shared/MainFeed";
+import CategorySection from "../mobile/main/CategorySection";
 
 function MobileLayout() {
   return (
@@ -8,6 +9,7 @@ function MobileLayout() {
       <div className="pt-16">
         <MobileNavbar />
         <HeroSection />
+        <CategorySection />
         <MainFeed />
       </div>
     </>

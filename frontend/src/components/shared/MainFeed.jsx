@@ -72,11 +72,12 @@ function MainFeed() {
     <>
       <div
         className={clsx(
-          "flex items-center justify-center",
-          " font-semibold",
+          "flex items-center",
+          "font-semibold",
           "md:text-xl",
           "lg:text-2xl",
-          "mb-5"
+          "mt-5 mb-3",
+          "px-3"
         )}
       >
         Fresh Recommendations
