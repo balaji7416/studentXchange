@@ -15,9 +15,9 @@ function Searchbar({ styles = "" }) {
       <input
         type="text"
         placeholder="search"
-        className={clsx("p-3 rounded-l-md focus:outline-none w-full")}
+        className={clsx("p-2 md:p-3 rounded-l-md focus:outline-none w-full")}
       />
-      <button className="bg-black text-white p-3 rounded-r-md">
+      <button className="bg-black text-white p-2 md:p-3 rounded-r-md">
         <FontAwesomeIcon icon={faSearch} />
       </button>
     </div>

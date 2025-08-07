@@ -33,7 +33,7 @@ function MobileNavbar() {
       )}
     >
       {/* Top bar: menu, logo, location */}
-      <div className={clsx("flex", "items-center", "justify-between", "p-3")}>
+      <div className={clsx("flex", "items-center", "justify-between", "p-2")}>
         {/* Hamburger menu and logo */}
         <div className={clsx("flex", "items-center", "space-x-4")}>
           <button
