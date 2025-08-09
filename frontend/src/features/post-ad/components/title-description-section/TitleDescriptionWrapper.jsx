@@ -26,7 +26,7 @@ function TitleDiscriptionSections() {
           />
         </div>
         <div className={clsx("flex flex-col space-y-3")}>
-          <div>Discription</div>
+          <div>Description</div>
           <textarea
             name=""
             id=""

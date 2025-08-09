@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import {
   CategoryTypeWrapper,
   TitleDescriptionWrapper,
+  PriceInput,
+  ImageUploadSection,
 } from "@features/post-ad";
 
 function PostAdd() {
@@ -52,6 +54,16 @@ function PostAdd() {
         {/* title and discription section */}
         <div className={clsx("flex bg-indigo-700 ")}>
           <TitleDescriptionWrapper />
+        </div>
+
+        {/* price input section */}
+        <div>
+          <PriceInput />
+        </div>
+
+        {/* image upload section */}
+        <div>
+          <ImageUploadSection />
         </div>
       </form>
     </div>
