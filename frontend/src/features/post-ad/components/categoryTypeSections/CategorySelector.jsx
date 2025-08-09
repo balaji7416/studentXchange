@@ -1,0 +1,69 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import clsx from "clsx";
+import CategoryDropdown from "./CategoryDropdown";
+
+function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
+  const [categoryOpen, setCategoryOpen] = useState(false);
+
+  return (
+    <>
+      <div
+        className={clsx("flex flex-col space-y-3", "w-full", "bg-slate-400")}
+      >
+        <div> Select Category</div>
+        <div
+          className={clsx(
+            "flex items-center justify-between",
+            " w-3/4 max-w-[500px]",
+            "rounded-md bg-indigo-300-400",
+            " ",
+            "transition-all duration-300 ease-out",
+            "relative"
+          )}
+        >
+          <input
+            type="text"
+            placeholder="category"
+            value={categoryValue}
+            // onChange={(e) => setCategoryValue(e.target.value)}
+            readOnly
+            className={clsx(
+              "p-3",
+              "flex-1",
+              "rounded-l-md",
+              categoryOpen ? "rounded-bl-none" : "",
+              "outline-none"
+            )}
+          />
+          <button
+            type="button"
+            className={clsx(
+              "flex items-center justify-center",
+              "bg-white",
+              "p-4",
+              "rounded-r-md",
+              categoryOpen ? "rounded-br-none" : ""
+            )}
+            onClick={() => setCategoryOpen((prev) => !prev)}
+          >
+            <FontAwesomeIcon
+              icon={categoryOpen ? faChevronDown : faChevronUp}
+            />
+          </button>
+          <div className={clsx("absolute top-full left-0 z-20 w-full", "")}>
+            <CategoryDropdown
+              categoryOpen={categoryOpen}
+              setCategoryValue={setCategoryValue}
+              setCategoryOpen={setCategoryOpen}
+              handleChange={handleChange}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default CategorySelection;

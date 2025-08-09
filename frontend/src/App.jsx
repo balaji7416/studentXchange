@@ -1,9 +1,16 @@
-import ResponsiveLayout from "./components/layout/ResponsiveLayout";
+import { Routes, Route } from "react-router-dom";
+import { HomePage, PostAdPage } from "@pages";
+import { ResponsiveLayout } from "@layouts";
 
 function App() {
   return (
     <>
-      <ResponsiveLayout />
+      <Routes>
+        <Route path="/" element={<ResponsiveLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="postadd" element={<PostAdPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }
