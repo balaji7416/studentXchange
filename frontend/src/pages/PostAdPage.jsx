@@ -7,7 +7,8 @@ import {
   TitleDescriptionWrapper,
   PriceInput,
   ImageUploadSection,
-  LocationSelectorSection,
+  ContactDetailsSection,
+  PostAdBtn,
 } from "@features/post-ad";
 
 import { LocationSelector } from "@shared";
@@ -87,9 +88,27 @@ function PostAdd() {
           </div>
 
           {/* Location section */}
-          <div className="flex flex-col gap-3 p-3">
-            <div className="font-semibold ">Select Your Location</div>
+          <div
+            className={clsx(
+              "w-full flex flex-col gap-3",
+              "border-b-2 border-gray-200",
+              "pb-5"
+            )}
+          >
+            <div className="font-semibold text-center">
+              Select Your Location
+            </div>
             <LocationSelector width="w-full max-w-[600px] mx-auto" />
+          </div>
+
+          {/* contact details section */}
+          <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
+            <ContactDetailsSection />
+          </div>
+
+          {/*post submit button */}
+          <div>
+            <PostAdBtn />
           </div>
         </div>
       </form>

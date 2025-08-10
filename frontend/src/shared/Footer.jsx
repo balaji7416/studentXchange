@@ -6,7 +6,7 @@ function Footer() {
       className={clsx(
         "flex flex-col",
         "p-4 space-y-4",
-        "bg-[#004896] text-white text-sm",
+        "bg-blue-600 text-white text-sm",
 
         "mt-5",
         "border-t-2 border-gray-200"
