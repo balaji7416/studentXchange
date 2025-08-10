@@ -24,7 +24,7 @@ function Footer() {
 
       <div className={clsx("flex flex-col")}>
         <div className="text-md font-semibold">Contact US</div>
-        <div>Email: queries@IISmart.com</div>
+        <div>Email: queries@ISMart.com</div>
       </div>
 
       <div className="flex justify-center text-md font-semibold">

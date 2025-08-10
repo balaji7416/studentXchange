@@ -20,7 +20,7 @@ function ContactDetailsSection() {
       >
         <div
           className={clsx(
-            "w-[3.2rem] h-[3.2rem] md:w-[6rem] md:h-[6rem] bg-[#e1e1e1] rounded-full flex justify-center items-center"
+            "w-[2.5rem] h-[2.5rem] sm:w-[3.5rem] sm:h-[3.5rem] md:w-[6rem] md:h-[6rem] bg-[#e1e1e1] rounded-full flex justify-center items-center"
           )}
         >
           <FontAwesomeIcon icon={faUser} />
@@ -28,6 +28,7 @@ function ContactDetailsSection() {
         <input
           type="text"
           value={"username"}
+          onChange={(e) => (e.target.value += "")}
           className={clsx(
             "p-3 rounded-md",
             "w-auto md:w-full md:max-w-[300px]",
@@ -39,7 +40,7 @@ function ContactDetailsSection() {
       </div>
 
       <div className={clsx("font-semibold tex-medium opacity-40")}>
-        *Please enter Fill atleast one field to proceed with your post
+        *Please Provide atleast one field to proceed with your post
       </div>
       <div
         className={clsx(
@@ -48,6 +49,8 @@ function ContactDetailsSection() {
       >
         <input
           type="email"
+          value={""}
+          onChange={(e) => (e.target.value += "")}
           placeholder="email"
           className={clsx(
             "p-3 rounded-md",

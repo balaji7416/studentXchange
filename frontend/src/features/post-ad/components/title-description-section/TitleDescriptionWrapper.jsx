@@ -29,8 +29,8 @@ function TitleDiscriptionSections() {
           <input
             type="text"
             placeholder="title"
-            // onChange={(e) => setCategoryValue(e.target.value)}
-
+            onChange={(e) => (e.target.value += "")}
+            value={""}
             className={clsx(
               "p-3",
               "flex-1",
@@ -44,7 +44,9 @@ function TitleDiscriptionSections() {
           <div>Description</div>
           <textarea
             name=""
-            id=""
+            value={""}
+            onChange={(e) => (e.target.value += "")}
+            placeholder="description"
             className={clsx(
               "p-3 rounded-md",
               "min-h-[10rem]",
