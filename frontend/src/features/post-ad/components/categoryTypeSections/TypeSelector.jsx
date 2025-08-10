@@ -9,17 +9,17 @@ function TypeSelection({ typeValue, setTypeValue, categoryValue }) {
 
   return (
     <>
-      <div
-        className={clsx("flex flex-col space-y-3", "w-full", "bg-slate-400")}
-      >
+      <div className={clsx("flex flex-col space-y-3", "w-full")}>
         <div> Select Type</div>
         <div
           className={clsx(
             "flex items-center justify-between",
-            "w-3/4 max-w-[500px]",
+            "w-full sm:max-w-[600px]",
             "rounded-md bg-indigo-300-400",
             "relative", // Ensure the parent container is positioned correctly
-            "transition-all duration-300 ease-out"
+            "transition-all duration-300 ease-out",
+            "relative",
+            "border-2 border-gray-300"
           )}
         >
           <input
@@ -30,7 +30,7 @@ function TypeSelection({ typeValue, setTypeValue, categoryValue }) {
             readOnly
             className={clsx(
               "p-3",
-              "flex-1",
+              "w-full sm:max-w-[600px]",
               "rounded-l-md",
               typeOpen ? "rounded-bl-none" : "",
               "outline-none"

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CategorySelector from "./CategorySelector";
 import TypeSelector from "./TypeSelector";
+import clsx from "clsx";
 
-function CategoryTypeWrapper() {
+function CategoryTypeWrapper({ className }) {
   const [typeValue, setTypeValue] = useState("");
   const [categoryValue, setCategoryValue] = useState("");
 
@@ -12,7 +13,9 @@ function CategoryTypeWrapper() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-3">
+    <div
+      className={clsx("w-full sm:max-w-[600px] flex flex-col gap-3", className)}
+    >
       <CategorySelector
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}

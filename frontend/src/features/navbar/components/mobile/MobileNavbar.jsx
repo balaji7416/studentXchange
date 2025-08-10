@@ -1,22 +1,17 @@
 import clsx from "clsx";
 import { SearchBar, Logo } from "@shared";
-import MobileLocationSelector from "./MobileLocationSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronUp,
-  faChevronDown,
   faBars,
   faXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
-
+import MobileLocationSelector from "./MobileLocationSelector";
 function MobileNavbar() {
   // State for toggling menu and location modal
   const [showMenu, setShowMenu] = useState(false);
-  const [showLocationMenu, setShowLocationMenu] = useState(false);
-  const [location, setlocation] = useState("");
 
   return (
     <nav
@@ -28,13 +23,17 @@ function MobileNavbar() {
         "w-full",
         "bg-gray-100",
         "px-1",
-        "shadow-md"
+        "shadow-md",
+        "flex flex-col"
       )}
     >
       {/* Top bar: menu, logo, location */}
-      <div className={clsx("flex", "items-center", "justify-between", "p-2")}>
+
+      <div
+        className={clsx("flex", "items-center", "justify-between gap-2", "p-2")}
+      >
         {/* Hamburger menu and logo */}
-        <div className={clsx("flex", "items-center", "space-x-4")}>
+        <div className={clsx("flex", "items-center", "space-x-2")}>
           <button
             onClick={() => setShowMenu((prev) => !prev)}
             className={clsx("text-xl")}
@@ -45,33 +44,22 @@ function MobileNavbar() {
               <FontAwesomeIcon icon={faBars} />
             )}
           </button>
-          <Logo text="ISMart" />
+          <Logo text="ISMart" size="text-lg" />
         </div>
 
         {/* Menu */}
         <MobileMenu onClose={() => setShowMenu(false)} showMenu={showMenu} />
 
         {/* Location selector */}
-        <div className={clsx("flex relative", "items-center", "space-x-3")}>
-          <span>
+        <div className={clsx("flex items-center", "")}>
+          <span className="ml-6">
             <FontAwesomeIcon icon={faLocationDot} />
           </span>
 
           {/* Location modal or selected location */}
-          <MobileLocationSelector
-            setlocation={setlocation}
-            showLocationMenu={showLocationMenu}
-            onClose={() => setShowLocationMenu(false)}
-          />
-
-          <div>{location || "Select Location"}</div>
-
-          {/* Toggle location modal */}
-          <button onClick={() => setShowLocationMenu((prev) => !prev)}>
-            <FontAwesomeIcon
-              icon={showLocationMenu ? faChevronDown : faChevronUp}
-            />
-          </button>
+          <div className="">
+            <MobileLocationSelector width="w-[11]" />
+          </div>
         </div>
       </div>
 

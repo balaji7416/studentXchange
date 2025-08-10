@@ -6,19 +6,34 @@ function PriceInput() {
 
   return (
     <div
-      className={clsx("flex flex-col space-y-3", "w-full p-3", "bg-slate-400")}
+      className={clsx(
+        "flex flex-col space-y-3",
+        "p-3",
+        "w-full sm:max-w-[600px]",
+        "mx-auto"
+      )}
     >
       <div> Set a Price</div>
       <div
         className={clsx(
           "flex items-center justify-between",
-          " w-3/4 max-w-[500px]",
+          "w-full sm:max-w-[600px]",
           "rounded-md bg-indigo-300-400",
           " ",
           "transition-all duration-300 ease-out",
-          "relative"
+          "relative",
+          "relative",
+          "border-2 border-gray-300"
         )}
       >
+        <div
+          className={clsx(
+            "p-3 font-semibold bg-white",
+            "border-r-2 border-gray-300"
+          )}
+        >
+          ₹
+        </div>
         <input
           type="number"
           required
@@ -26,12 +41,13 @@ function PriceInput() {
           placeholder="enter price"
           value={price}
           onChange={(e) => setPrice(Number(e.target.value))}
-          style={{
-            MozAppearance: "textfield",
-            WebkitAppearance: "none",
-            margin: 0,
-          }}
-          className={clsx("p-3", "flex-1", "rounded-md", "outline-none")}
+          className={clsx(
+            "p-3",
+            "flex-1",
+            "rounded-r-md",
+            "outline-none",
+            "w-full sm:max-w-[600px]"
+          )}
         />
       </div>
     </div>

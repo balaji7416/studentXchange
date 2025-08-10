@@ -7,18 +7,26 @@ import {
   TitleDescriptionWrapper,
   PriceInput,
   ImageUploadSection,
+  LocationSelectorSection,
 } from "@features/post-ad";
+
+import { LocationSelector } from "@shared";
 
 function PostAdd() {
   const navigate = useNavigate();
 
   return (
-    <div className={clsx("bg-red-200", "min-h-[90vh]", "flex flex-col  gap-5")}>
+    <div
+      className={clsx(
+        "min-h-[90vh]",
+        "flex flex-col items-center justify-center gap-5"
+      )}
+    >
       {/* navbar for returning home */}
       <nav
         className={clsx(
           "flex p-3",
-          "bg-yellow-300",
+          "bg-gray-200",
           "fixed top-0 left-0 w-full z-50"
         )}
       >
@@ -39,31 +47,50 @@ function PostAdd() {
       {/* form for post add */}
       <form
         action=""
-        className={clsx("flex flex-col  bg-green-300", "px-10 w-full h-full")}
+        className={clsx(
+          "flex flex-col ",
+          "p-1 w-full h-full",
+
+          "flex flex-col items-center"
+        )}
       >
-        {/* category and type dropdown */}
         <div
           className={clsx(
-            "flex flex-col items-start justify-center gap-4 ",
-            "bg-blue-500 w-full h-full p-3"
+            "w-full bg-white",
+            "flex flex-col items-center justify-center gap-4 border-2 border-gray-100 shadow-md p-1"
           )}
         >
-          <CategoryTypeWrapper />
-        </div>
+          {/* category and type dropdown */}
+          <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
+            <CategoryTypeWrapper className="mx-auto" />
+          </div>
 
-        {/* title and discription section */}
-        <div className={clsx("flex bg-indigo-700 ")}>
-          <TitleDescriptionWrapper />
-        </div>
+          {/* title and discription section */}
+          <div
+            className={clsx(
+              "flex w-full p-2 ",
+              "border-b-2 border-gray-200",
+              "pb-5"
+            )}
+          >
+            <TitleDescriptionWrapper />
+          </div>
 
-        {/* price input section */}
-        <div>
-          <PriceInput />
-        </div>
+          {/* price input section */}
+          <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
+            <PriceInput />
+          </div>
 
-        {/* image upload section */}
-        <div>
-          <ImageUploadSection />
+          {/* image upload section */}
+          <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
+            <ImageUploadSection />
+          </div>
+
+          {/* Location section */}
+          <div className="flex flex-col gap-3 p-3">
+            <div className="font-semibold ">Select Your Location</div>
+            <LocationSelector width="w-full max-w-[600px] mx-auto" />
+          </div>
         </div>
       </form>
     </div>

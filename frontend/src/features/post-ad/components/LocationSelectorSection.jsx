@@ -42,13 +42,16 @@ function LocationDropDown({ locationOpen, setLocationValue, setLocationOpen }) {
   );
 }
 
-function LocationSelector() {
+function LocationSelectorSection() {
   const [locationOpen, setLocationOpen] = useState(false);
   const [locationValue, setLocationValue] = useState("");
 
   return (
     <>
-      <div className={clsx("flex flex-col space-y-3", "", "")}>
+      <div
+        className={clsx("flex flex-col space-y-3", "w-full", "bg-slate-400")}
+      >
+        <div> Select Location</div>
         <div
           className={clsx(
             "flex items-center justify-between",
@@ -101,4 +104,4 @@ function LocationSelector() {
   );
 }
 
-export default LocationSelector;
+export default LocationSelectorSection;

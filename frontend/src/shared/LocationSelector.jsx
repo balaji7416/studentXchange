@@ -42,59 +42,64 @@ function LocationDropDown({ locationOpen, setLocationValue, setLocationOpen }) {
   );
 }
 
-function LocationSelector() {
+function LocationSelector({ width }) {
   const [locationOpen, setLocationOpen] = useState(false);
   const [locationValue, setLocationValue] = useState("");
 
   return (
     <>
-      <div
-        className={clsx(
-          "flex items-center justify-between",
-          "w-auto md:max-w-[500px]",
-          "rounded-md bg-indigo-300-400",
-          " ",
-          "transition-all duration-300 ease-out",
-          "relative",
-          "border-2 border-gray-400"
-        )}
-      >
-        <input
-          type="text"
-          placeholder="location"
-          value={locationValue}
-          // onChange={(e) => setCategoryValue(e.target.value)}
-          readOnly
+      <div className={clsx("")}>
+        <div
           className={clsx(
-            "w-[7rem] sm:w-full max-w-[500px]",
-            "w-full",
-            "outline-none",
-            "p-2",
-            "flex-1",
-            "rounded-l-md",
-            locationOpen ? "rounded-bl-none" : "",
-            "outline-none"
+            "flex items-center justify-between",
+            width || "w-auto",
+            "h-full",
+            "rounded-md bg-indigo-300-400",
+            "transition-all duration-300 ease-out",
+            "relative",
+            "border-2 p-1 border-gray-400",
+            "bg-white"
           )}
-        />
-        <button
-          type="button"
-          className={clsx(
-            "flex items-center justify-center",
-            "bg-white",
-            "p-3",
-            "rounded-r-md",
-            locationOpen ? "rounded-br-none" : ""
-          )}
-          onClick={() => setLocationOpen((prev) => !prev)}
         >
-          <FontAwesomeIcon icon={locationOpen ? faChevronDown : faChevronUp} />
-        </button>
-        <div className={clsx("absolute top-full left-0 z-20 w-full", "")}>
-          <LocationDropDown
-            locationOpen={locationOpen}
-            setLocationValue={setLocationValue}
-            setLocationOpen={setLocationOpen}
+          <input
+            type="text"
+            placeholder="location"
+            value={locationValue}
+            // onChange={(e) => setCategoryValue(e.target.value)}
+            readOnly
+            className={clsx(
+              "w-[7rem] sm:w-full max-w-[500px] md:w-full",
+              "w-full",
+              "outline-none",
+              "p-2",
+              "flex-1",
+              "rounded-l-md",
+              locationOpen ? "rounded-bl-none" : "",
+              "outline-none"
+            )}
           />
+          <button
+            type="button"
+            className={clsx(
+              "flex items-center justify-center",
+              "bg-white",
+              "p-3",
+              "rounded-r-md",
+              locationOpen ? "rounded-br-none" : ""
+            )}
+            onClick={() => setLocationOpen((prev) => !prev)}
+          >
+            <FontAwesomeIcon
+              icon={locationOpen ? faChevronDown : faChevronUp}
+            />
+          </button>
+          <div className={clsx("absolute top-full left-0 z-20 w-full", "")}>
+            <LocationDropDown
+              locationOpen={locationOpen}
+              setLocationValue={setLocationValue}
+              setLocationOpen={setLocationOpen}
+            />
+          </div>
         </div>
       </div>
     </>

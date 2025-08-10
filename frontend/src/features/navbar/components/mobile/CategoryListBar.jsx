@@ -51,7 +51,7 @@ const categories = [
 
 function CategorySection() {
   return (
-    <div>
+    <div className={clsx()}>
       <div className="flex flex-start font-semibold text-[.9rem] px-3">
         Categories
       </div>

@@ -2,19 +2,28 @@ import clsx from "clsx";
 
 function TitleDiscriptionSections() {
   return (
-    <div className={clsx("flex flex-col w-full p-3 gap-3")}>
+    <div
+      className={clsx("flex flex-col w-full sm:max-w-[700px] gap-3", "mx-auto")}
+    >
       <div
-        className={clsx("flex flex-col space-y-3", "w-full", "bg-slate-400")}
+        className={clsx(
+          "flex flex-col space-y-3",
+          "w-full sm:max-w-[600px]",
+          "mx-auto"
+        )}
       >
         <div>Title</div>
         <div
           className={clsx(
             "flex items-center justify-between",
-            " w-3/4 max-w-[500px]",
+            "w-full sm:max-w-[600px]",
             "rounded-md bg-indigo-300-400",
             " ",
             "transition-all duration-300 ease-out",
-            "relative"
+            "relative",
+            "mx-auto",
+            "relative",
+            "border-2 border-gray-300"
           )}
         >
           <input
@@ -22,7 +31,13 @@ function TitleDiscriptionSections() {
             placeholder="title"
             // onChange={(e) => setCategoryValue(e.target.value)}
 
-            className={clsx("p-3", "flex-1", "rounded-md", "outline-none")}
+            className={clsx(
+              "p-3",
+              "flex-1",
+              "rounded-md",
+              "outline-none",
+              "w-full sm:max-w-[600px]"
+            )}
           />
         </div>
         <div className={clsx("flex flex-col space-y-3")}>
@@ -32,7 +47,8 @@ function TitleDiscriptionSections() {
             id=""
             className={clsx(
               "p-3 rounded-md",
-              "w-full max-w-[500px] min-h-[10rem]",
+              "min-h-[10rem]",
+              "w-full sm:max-w-[600px]",
               "rounded-md",
               "border border-gray-300",
               "outline-none",

@@ -2,3 +2,4 @@ export { default as CategoryTypeWrapper } from "./components/categoryTypeSection
 export { default as TitleDescriptionWrapper } from "./components/title-description-section/TitleDescriptionWrapper";
 export { default as PriceInput } from "./components/PriceInput";
 export { default as ImageUploadSection } from "./components/ImageUploadSection";
+export { default as LocationSelectorSection } from "./components/LocationSelectorSection";

@@ -20,16 +20,26 @@ function ImageUploadSection() {
   };
 
   return (
-    <div className={clsx("flex flex-col gap-3", "p-3")}>
+    <div
+      className={clsx(
+        "flex flex-col items-center justify-center gap-3",
+        "width-full max-w-[600px] mx-auto",
+        "p-2"
+      )}
+    >
       <div className={clsx("font-semibold")}>Upload a Image of Product</div>
       <button
         onClick={handleClick}
         className={clsx(
-          "p-3 max-w-[150px] h-[150px] bg-white",
-          "flex items-center justify-center"
+          "p-3 w-[4rem] h-[4rem] md:w-[6rem] md:h-[6rem] bg-white",
+          "flex items-center justify-center",
+          "rounded-md shadow-md border-2 border-gray-100"
         )}
       >
-        <FontAwesomeIcon icon={faCamera} className={clsx("text-8xl")} />
+        <FontAwesomeIcon
+          icon={faCamera}
+          className={clsx("text-3xl md:text-4xl text-blue-400", "")}
+        />
       </button>
       <div
         className={clsx(

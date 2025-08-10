@@ -10,17 +10,21 @@ function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
   return (
     <>
       <div
-        className={clsx("flex flex-col space-y-3", "w-full", "bg-slate-400")}
+        className={clsx(
+          "flex flex-col space-y-3",
+          "w-full sm:w-auto sm:max-w-[600px]"
+        )}
       >
         <div> Select Category</div>
         <div
           className={clsx(
             "flex items-center justify-between",
-            " w-3/4 max-w-[500px]",
+            "w-full sm:max-w-[600px]",
             "rounded-md bg-indigo-300-400",
             " ",
             "transition-all duration-300 ease-out",
-            "relative"
+            "relative",
+            "border-2 border-gray-300"
           )}
         >
           <input
@@ -31,10 +35,11 @@ function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
             readOnly
             className={clsx(
               "p-3",
-              "flex-1",
+              "",
               "rounded-l-md",
               categoryOpen ? "rounded-bl-none" : "",
-              "outline-none"
+              "outline-none",
+              "w-full  sm:max-w-[600px]"
             )}
           />
           <button
