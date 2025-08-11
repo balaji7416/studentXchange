@@ -1,4 +1,4 @@
-import { AuthForm } from "@features/Authentication";
+import { AuthForm } from "@features/authentication";
 
 <AuthForm />;
 
