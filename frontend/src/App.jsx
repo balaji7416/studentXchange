@@ -9,8 +9,8 @@ function App() {
         <Route path="/" element={<ResponsiveLayout />}>
           <Route index element={<HomePage />} />
           <Route path="postadd" element={<PostAdPage />} />
-          <Route path="auth" element={<AuthPage />} />
         </Route>
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </>
   );
