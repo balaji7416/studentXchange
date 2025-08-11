@@ -87,22 +87,44 @@ function MobileMenu({ onClose, showMenu }) {
         >
           <div
             className={clsx(
-              "flex  justify-between",
+              "flex  flex-col justify-center gap-10",
               " w-full h-1/3",
-              "border-b-2"
+              "border-b-2",
+              ""
             )}
           >
-            <div
-              className={clsx(
-                "w-20 h-20 rounded-full bg-gray-100",
-                "flex justify-center items-center",
-                "self-start"
-              )}
-            >
-              <FontAwesomeIcon icon={faUser} className={clsx("text-3xl")} />
+            <div className={clsx(" flex items-center justify-between", "p-4")}>
+              <div
+                className={clsx(
+                  "w-20 h-20 rounded-full bg-gray-100",
+                  "flex justify-center items-center",
+                  "self-start"
+                )}
+              >
+                <FontAwesomeIcon icon={faUser} className={clsx("text-3xl")} />
+              </div>
+              <div
+                className={clsx(
+                  "flex items-center justify-center text-bold text-2xl",
+                  ""
+                )}
+              >
+                UserName
+              </div>
             </div>
-            <div className={clsx("text-bold text-2xl", "mr-10 mt-5")}>
-              UserName
+
+            <div className={clsx("self-center bg-yellow-50 p-3")}>
+              <Link
+                to="/auth"
+                className={clsx(
+                  "text-medium text-center font-semibold rounded-md bg-blue-600 text-white px-10 py-3",
+                  "",
+                  "hover:bg-blue-500",
+                  "transition-all duration-300 ease-in-out"
+                )}
+              >
+                Login
+              </Link>
             </div>
           </div>
 

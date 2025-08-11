@@ -16,7 +16,7 @@ function DesktopNavbar() {
           <Logo text="ISMart" />
           <LocationSelector width="max-w-[200px]" />
           <SearchBar styles="flex-grow max-w-md" />
-          <NavbarLinks />
+          <NavbarLinks className="flex-grow max-w-md" />
         </div>
       </nav>
     </>

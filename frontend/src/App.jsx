@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage, PostAdPage } from "@pages";
+import { HomePage, PostAdPage, AuthPage } from "@pages";
 import { ResponsiveLayout } from "@layouts";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
         <Route path="/" element={<ResponsiveLayout />}>
           <Route index element={<HomePage />} />
           <Route path="postadd" element={<PostAdPage />} />
+          <Route path="auth" element={<AuthPage />} />
         </Route>
       </Routes>
     </>

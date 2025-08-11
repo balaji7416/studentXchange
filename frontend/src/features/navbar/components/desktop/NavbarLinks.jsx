@@ -31,37 +31,68 @@ const links = [
   },
 ];
 
-function Links() {
+function NavbarLinks({ className }) {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <div
       className={clsx(
-        "flex items-center justify-evenly p-2 flex-grow max-w-md"
+        "flex items-center justify-between gap-4 p-2 flex-grow max-w-md ",
+        className
       )}
     >
-      {links.map((link) => (
-        <Link to={link.href} className="text-xl">
-          {link.label}
-        </Link>
-      ))}
-      <button
-        onClick={() => setShowMenu((prev) => !prev)}
-        className={clsx("relative")}
-      >
-        {showMenu ? (
-          <FontAwesomeIcon icon={faChevronDown} />
-        ) : (
-          <FontAwesomeIcon icon={faChevronUp} />
-        )}
-      </button>
+      <div className={clsx("flex items-center justify-evenly", "w-[60%]")}>
+        {links.map((link) => (
+          <Link to={link.href} className="text-xl">
+            {link.label}
+          </Link>
+        ))}
+        <button
+          onClick={() => setShowMenu((prev) => !prev)}
+          className={clsx("relative")}
+        >
+          {showMenu ? (
+            <FontAwesomeIcon icon={faChevronDown} />
+          ) : (
+            <FontAwesomeIcon icon={faChevronUp} />
+          )}
+        </button>
+      </div>
+
       <div className="absolute top-10 right-0 w-80">
         <DesktopMenu onClose={() => setShowMenu(false)} showMenu={showMenu} />
       </div>
 
-      <Link to="/postadd" className="text-lg rounded-md bg-gray-200 px-5 py-2">
-        Sell
-      </Link>
+      <div
+        className={clsx(
+          "flex items-center justify-center gap-3 ",
+          "",
+          "w-[40%]"
+        )}
+      >
+        <Link
+          to="/auth"
+          className={clsx(
+            "text-medium text-center font-semibold rounded-md bg-blue-600 text-white px-3 py-1",
+            "w-1/2",
+            "hover:bg-blue-500",
+            "transition-all duration-300 ease-in-out"
+          )}
+        >
+          Login
+        </Link>
+        <Link
+          to="/postadd"
+          className={clsx(
+            "text-medium text-center font-semibold rounded-md  bg-blue-600 text-white  px-3 py-1",
+            "w-1/2",
+            "hover:bg-blue-500",
+            "transition-all duration-300 ease-in-out"
+          )}
+        >
+          Post
+        </Link>
+      </div>
     </div>
   );
 }
-export default Links;
+export default NavbarLinks;
