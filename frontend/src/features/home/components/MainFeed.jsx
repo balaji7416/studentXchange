@@ -83,7 +83,7 @@ function MainFeed() {
     fetchAds();
   }, []);
 
-  const HomeFeed = homeAds || tempFeed;
+  const HomeFeed = homeAds.length === 0 ? tempFeed : homeAds;
 
   return (
     <>
@@ -111,19 +111,33 @@ function MainFeed() {
             "place-items-center"
           )}
         >
-          {HomeFeed.map(
-            ({ images, title, price, location, _id, createdAt }) => (
-              <Card
-                imgSrc={images[0].url}
-                alt="prodcut image"
-                title={title}
-                price={price}
-                location={location}
-                key={_id}
-                postedDate={createdAt}
-              />
-            )
-          )}
+          {HomeFeed === homeAds
+            ? HomeFeed.map(
+                ({ images, title, price, location, _id, createdAt }) => (
+                  <Card
+                    imgSrc={images[0].url}
+                    alt="prodcut image"
+                    title={title}
+                    price={price}
+                    location={location}
+                    key={_id}
+                    postedDate={createdAt}
+                  />
+                )
+              )
+            : HomeFeed.map(
+                ({ imgSrc, alt, title, price, location, id, postedDate }) => (
+                  <Card
+                    imgSrc={imgSrc}
+                    alt={alt}
+                    title={title}
+                    price={price}
+                    location={location}
+                    key={id}
+                    postedDate={postedDate}
+                  />
+                )
+              )}
         </div>
       </div>
     </>
