@@ -111,17 +111,19 @@ function MainFeed() {
             "place-items-center"
           )}
         >
-          {homeAds.map(({ images, title, price, location, _id, createdAt }) => (
-            <Card
-              imgSrc={images[0].url}
-              alt="prodcut image"
-              title={title}
-              price={price}
-              location={location}
-              key={_id}
-              postedDate={createdAt}
-            />
-          ))}
+          {HomeFeed.map(
+            ({ images, title, price, location, _id, createdAt }) => (
+              <Card
+                imgSrc={images[0].url}
+                alt="prodcut image"
+                title={title}
+                price={price}
+                location={location}
+                key={_id}
+                postedDate={createdAt}
+              />
+            )
+          )}
         </div>
       </div>
     </>
