@@ -12,6 +12,8 @@ import {
   faRectangleList,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../../hooks/useAuth";
+import { useState } from "react";
 
 const menuOptions = [
   {
@@ -59,6 +61,13 @@ const menuOptions = [
 ];
 
 function MobileMenu({ onClose, showMenu }) {
+  const { user, logout } = useAuth();
+  const [isLogin, setIslogin] = useState(() => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  });
+
+  const username = user?.username || "Guest";
   return (
     <div>
       <div
@@ -93,7 +102,7 @@ function MobileMenu({ onClose, showMenu }) {
               ""
             )}
           >
-            <div className={clsx(" flex items-center justify-between", "p-4")}>
+            <div className={clsx(" flex items-center gap-[5rem]", "p-4")}>
               <div
                 className={clsx(
                   "w-20 h-20 rounded-full bg-gray-100",
@@ -105,16 +114,23 @@ function MobileMenu({ onClose, showMenu }) {
               </div>
               <div
                 className={clsx(
-                  "flex items-center justify-center text-bold text-2xl",
+                  "flex items-center justify-center gap-2 text-bold text-2xl",
                   ""
                 )}
               >
-                UserName
+                {isLogin ? "Hello, " : null}{" "}
+                <span className="text-bold shadow-md p-2 bg-black text-white rounded-md">
+                  {username}
+                </span>
               </div>
             </div>
 
             <div className={clsx("self-center bg-yellow-50 p-3")}>
               <Link
+                onClick={() => {
+                  setIslogin((prev) => !prev);
+                  isLogin ? logout() : null;
+                }}
                 to="/auth"
                 className={clsx(
                   "text-medium text-center font-semibold rounded-md bg-blue-600 text-white px-10 py-3",
@@ -123,7 +139,7 @@ function MobileMenu({ onClose, showMenu }) {
                   "transition-all duration-300 ease-in-out"
                 )}
               >
-                Login
+                {isLogin ? "Logout" : "Login"}
               </Link>
             </div>
           </div>

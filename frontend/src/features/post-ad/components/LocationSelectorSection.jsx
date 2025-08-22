@@ -4,7 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { LOCATIONS } from "@constants";
 
-function LocationDropDown({ locationOpen, setLocationValue, setLocationOpen }) {
+function LocationDropDown({ locationOpen, setLocation, setLocationOpen }) {
   return (
     <div
       className={clsx(
@@ -21,7 +21,7 @@ function LocationDropDown({ locationOpen, setLocationValue, setLocationOpen }) {
         <button
           type="button"
           onClick={() => {
-            setLocationValue(name);
+            setLocation(name);
             setLocationOpen(false);
           }}
           key={id}
@@ -42,9 +42,8 @@ function LocationDropDown({ locationOpen, setLocationValue, setLocationOpen }) {
   );
 }
 
-function LocationSelectorSection() {
+function LocationSelectorSection({ location, setLocation }) {
   const [locationOpen, setLocationOpen] = useState(false);
-  const [locationValue, setLocationValue] = useState("");
 
   return (
     <>
@@ -64,9 +63,10 @@ function LocationSelectorSection() {
         >
           <input
             type="text"
+            name="location"
             placeholder="location"
-            value={locationValue}
-            // onChange={(e) => setCategoryValue(e.target.value)}
+            value={location || ""}
+            onChange={(e) => setLocation(e.target.value)}
             readOnly
             className={clsx(
               "p-3",
@@ -94,7 +94,7 @@ function LocationSelectorSection() {
           <div className={clsx("absolute top-full left-0 z-20 w-full", "")}>
             <LocationDropDown
               locationOpen={locationOpen}
-              setLocationValue={setLocationValue}
+              setLocation={setLocation}
               setLocationOpen={setLocationOpen}
             />
           </div>

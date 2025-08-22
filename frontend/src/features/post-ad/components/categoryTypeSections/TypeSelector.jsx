@@ -4,7 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import TypeDropdown from "./TypeDropdown";
 
-function TypeSelection({ typeValue, setTypeValue, categoryValue }) {
+function TypeSelection({ type, setType, category }) {
   const [typeOpen, setTypeOpen] = useState(false);
 
   return (
@@ -24,9 +24,10 @@ function TypeSelection({ typeValue, setTypeValue, categoryValue }) {
         >
           <input
             type="text"
+            name="type"
             placeholder="type" // Update placeholder to "type"
-            value={typeValue}
-            // onChange={(e) => setTypeValue(e.target.value)}
+            value={type}
+            onChange={(e) => setType(e.target.value)}
             readOnly
             className={clsx(
               "p-3",
@@ -52,9 +53,9 @@ function TypeSelection({ typeValue, setTypeValue, categoryValue }) {
           <div className={clsx("absolute top-full left-0 z-10 w-full")}>
             <TypeDropdown
               typeOpen={typeOpen}
-              setTypeValue={setTypeValue}
+              setType={setType}
               setTypeOpen={setTypeOpen}
-              categoryValue={categoryValue}
+              category={category}
             />
           </div>
         </div>

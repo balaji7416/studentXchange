@@ -1,15 +1,22 @@
-import { useState } from "react";
 import CategorySelector from "./CategorySelector";
 import TypeSelector from "./TypeSelector";
 import clsx from "clsx";
 
-function CategoryTypeWrapper({ className }) {
-  const [typeValue, setTypeValue] = useState("");
-  const [categoryValue, setCategoryValue] = useState("");
+function CategoryTypeWrapper({
+  className,
+  category,
+  setCategory,
+  type,
+  setType,
+}) {
+  // const [typeValue, setTypeValue] = useState("");
+  // const [categoryValue, setCategoryValue] = useState("");
 
-  const handleChange = (newCat) => {
-    setCategoryValue(newCat);
-    setTypeValue("");
+  const handleChange = (newCategory) => {
+    // setCategoryValue(newCategory);
+    // setTypeValue("");
+    setCategory(newCategory);
+    setType("");
   };
 
   return (
@@ -17,15 +24,15 @@ function CategoryTypeWrapper({ className }) {
       className={clsx("w-full sm:max-w-[600px] flex flex-col gap-3", className)}
     >
       <CategorySelector
-        categoryValue={categoryValue}
-        setCategoryValue={setCategoryValue}
+        category={category}
+        setCategory={setCategory}
         handleChange={handleChange}
       />
       <TypeSelector
-        typeValue={typeValue}
-        setTypeValue={setTypeValue}
+        type={type}
+        setType={setType}
         handleChange={handleChange}
-        categoryValue={categoryValue}
+        category={category}
       />
     </div>
   );

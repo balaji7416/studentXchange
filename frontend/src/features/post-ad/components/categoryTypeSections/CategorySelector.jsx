@@ -4,7 +4,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import CategoryDropdown from "./CategoryDropdown";
 
-function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
+function CategorySelection({ category, setCategory, handleChange }) {
   const [categoryOpen, setCategoryOpen] = useState(false);
 
   return (
@@ -30,8 +30,9 @@ function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
           <input
             type="text"
             placeholder="category"
-            value={categoryValue}
-            // onChange={(e) => setCategoryValue(e.target.value)}
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             readOnly
             className={clsx(
               "p-3",
@@ -60,7 +61,7 @@ function CategorySelection({ categoryValue, setCategoryValue, handleChange }) {
           <div className={clsx("absolute top-full left-0 z-20 w-full", "")}>
             <CategoryDropdown
               categoryOpen={categoryOpen}
-              setCategoryValue={setCategoryValue}
+              setCategory={setCategory}
               setCategoryOpen={setCategoryOpen}
               handleChange={handleChange}
             />

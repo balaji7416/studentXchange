@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import Card from "./AdCard";
-
+import { Link } from "react-router-dom";
+import api from "../../../utils/axiosInstance";
+import { useState, useEffect } from "react";
 const tempFeed = [
   {
     imgSrc: "/img1.jpg",
@@ -68,6 +70,21 @@ const tempFeed = [
 ];
 
 function MainFeed() {
+  const [homeAds, setHomeAds] = useState([]);
+  useEffect(() => {
+    const fetchAds = async () => {
+      try {
+        const response = await api.get("/ad");
+        setHomeAds(response.data.ads);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAds();
+  }, []);
+
+  const HomeFeed = homeAds || tempFeed;
+
   return (
     <>
       <div
@@ -94,19 +111,17 @@ function MainFeed() {
             "place-items-center"
           )}
         >
-          {tempFeed.map(
-            ({ imgSrc, alt, title, price, location, id, postedDate }) => (
-              <Card
-                imgSrc={imgSrc}
-                alt={alt}
-                title={title}
-                price={price}
-                location={location}
-                id={id}
-                postedDate={postedDate}
-              />
-            )
-          )}
+          {homeAds.map(({ images, title, price, location, _id, createdAt }) => (
+            <Card
+              imgSrc={images[0].url}
+              alt="prodcut image"
+              title={title}
+              price={price}
+              location={location}
+              key={_id}
+              postedDate={createdAt}
+            />
+          ))}
         </div>
       </div>
     </>

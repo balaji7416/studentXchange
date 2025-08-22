@@ -15,11 +15,7 @@ function Footer() {
       <div className={clsx("self-center  font-bold text-2xl")}>ISMart</div>
       <div className={clsx("flex flex-col ", "")}>
         <div className="text-md font-semibold">About Us</div>
-        <div className="font-md">
-          ISMart is a student-to-student marketplace built by and for IIT (ISM)
-          students. Buy, sell, swap, or donate within your campus — fast, safe,
-          and hassle-free
-        </div>
+        <div className="font-md">Buy Smart Sell Smart Ismart</div>
       </div>
 
       <div className={clsx("flex flex-col")}>

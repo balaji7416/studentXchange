@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import {
   CategoryTypeWrapper,
   TitleDescriptionWrapper,
@@ -10,11 +12,87 @@ import {
   ContactDetailsSection,
   PostAdBtn,
 } from "@features/post-ad";
-
 import { LocationSelector } from "@shared";
+import postad from "../services/adService.js";
+import { useAuth } from "../hooks/useAuth.jsx";
 
 function PostAdd() {
   const navigate = useNavigate();
+
+  const { user } = useAuth();
+  const username = user?.username || "";
+
+  const [category, setCategory] = useState("");
+  const [type, setType] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [images, setImages] = useState([]);
+  const [location, setLocation] = useState("");
+  const [contactDetails, setContactDetails] = useState({
+    name: username,
+    phone: "",
+    email: "",
+  });
+  // const [loading, setloading] = useState(false);
+  // const [progress, setprogress] = useState(0);
+  // const [error, setError] = useState(null);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    //change the below code to individual checks
+    if (!category) {
+      console.log("Please select a category");
+      return;
+    }
+    if (!type) {
+      console.log("Please select a type");
+      return;
+    }
+    if (!title) {
+      console.log("Please enter a title");
+      return;
+    }
+    if (!description) {
+      console.log("Please enter a description");
+      return;
+    }
+    if (!price) console.log("Please enter a price");
+    if (!images.length) console.log("Please upload at least one image");
+    if (!location) console.log("Please enter a location");
+    if (!contactDetails.name) console.log("Please enter your name");
+    if (!contactDetails.email) console.log("Please enter your email");
+    if (!contactDetails.phone) console.log("please enter your phone number");
+    if (
+      !price ||
+      !images.length ||
+      !location ||
+      (!contactDetails.name && !contactDetails.email && !contactDetails.phone)
+    ) {
+      console.log("Please fill all the fields");
+    }
+
+    const formData = new FormData();
+    formData.append("category", category);
+    formData.append("type", type);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("location", location);
+    formData.append("contactDetails", JSON.stringify(contactDetails));
+    images.map((file) => {
+      formData.append("images", file);
+    });
+
+    try {
+      console.log(location || "undefined location");
+      postad(formData);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div
@@ -47,7 +125,7 @@ function PostAdd() {
 
       {/* form for post add */}
       <form
-        action=""
+        onSubmit={handleFormSubmit}
         className={clsx(
           "flex flex-col ",
           "p-1 w-full h-full",
@@ -63,7 +141,13 @@ function PostAdd() {
         >
           {/* category and type dropdown */}
           <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
-            <CategoryTypeWrapper className="mx-auto" />
+            <CategoryTypeWrapper
+              category={category}
+              setCategory={setCategory}
+              type={type}
+              setType={setType}
+              className="mx-auto"
+            />
           </div>
 
           {/* title and discription section */}
@@ -74,17 +158,22 @@ function PostAdd() {
               "pb-5"
             )}
           >
-            <TitleDescriptionWrapper />
+            <TitleDescriptionWrapper
+              title={title}
+              description={description}
+              setDescription={setDescription}
+              setTitle={setTitle}
+            />
           </div>
 
           {/* price input section */}
           <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
-            <PriceInput />
+            <PriceInput price={price} setPrice={setPrice} />
           </div>
 
           {/* image upload section */}
           <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
-            <ImageUploadSection />
+            <ImageUploadSection images={images} setImages={setImages} />
           </div>
 
           {/* Location section */}
@@ -98,12 +187,20 @@ function PostAdd() {
             <div className="font-semibold text-center">
               Select Your Location
             </div>
-            <LocationSelector width="w-full max-w-[600px] mx-auto" />
+            <LocationSelector
+              location={location}
+              setLocation={setLocation}
+              width="w-full max-w-[600px] mx-auto"
+            />
           </div>
 
           {/* contact details section */}
           <div className={clsx("w-full", "border-b-2 border-gray-200", "pb-5")}>
-            <ContactDetailsSection />
+            <ContactDetailsSection
+              contactDetails={contactDetails}
+              setContactDetails={setContactDetails}
+              width="w-full max-w-[600px] mx-auto"
+            />
           </div>
 
           {/*post submit button */}

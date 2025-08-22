@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const getTimeAgo = (postedDate) => {
   const date = new Date(postedDate);
@@ -36,7 +37,8 @@ function Card({
 }) {
   const date = getTimeAgo(postedDate);
   return (
-    <div
+    <Link
+      to="/adview"
       className={clsx(
         "flex flex-col ",
 
@@ -89,7 +91,7 @@ function Card({
           )}
         />
       </button>
-    </div>
+    </Link>
   );
 }
 

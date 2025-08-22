@@ -1,6 +1,6 @@
 import HomePageDesktop from "./desktop/HomePageDesktop";
 import HomePageMobile from "./mobile/HomePageMobile";
-import useIsMobile from "../hooks/useIsmobile";
+import useIsMobile from "../hooks/useIsmobile.js";
 
 function HomePage() {
   const isMobile = useIsMobile();

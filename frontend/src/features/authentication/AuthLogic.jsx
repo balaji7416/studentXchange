@@ -1,3 +1,0 @@
-function handleFormSubmit() {}
-
-export { handleFormSubmit };

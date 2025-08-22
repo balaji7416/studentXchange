@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { TYPES } from "@constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function TypeDropDown({ typeOpen, setTypeValue, setTypeOpen, categoryValue }) {
+function TypeDropDown({ typeOpen, setType, setTypeOpen, category }) {
   return (
     <div
       className={clsx(
@@ -14,12 +14,12 @@ function TypeDropDown({ typeOpen, setTypeValue, setTypeOpen, categoryValue }) {
         "bg-white p-3 shadow-md rounded-t-none rounded-md"
       )}
     >
-      {categoryValue ? (
-        TYPES[categoryValue].map(({ name, id, icon }) => (
+      {category ? (
+        TYPES[category].map(({ name, id, icon }) => (
           <button
             type="button"
             onClick={() => {
-              setTypeValue(name);
+              setType(name);
               setTypeOpen(false);
             }}
             key={id}

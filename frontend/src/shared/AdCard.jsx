@@ -26,15 +26,8 @@ const getTimeAgo = (postedDate) => {
   return "just now";
 };
 
-function Card({
-  imgSrc,
-  alt,
-  title,
-  price,
-  location,
-  postedDate = `${Date.now()}`,
-}) {
-  const date = getTimeAgo(postedDate);
+function Card({ url, alt, title, price, location, createdAt }) {
+  const date = getTimeAgo(createdAt);
   return (
     <div
       className={clsx(
@@ -51,7 +44,7 @@ function Card({
     >
       <div className={clsx("w-full h-2/3 p-1")}>
         <img
-          src={imgSrc}
+          src={url}
           alt={alt}
           className={clsx("object-contain w-full h-full rounded-md")}
         ></img>

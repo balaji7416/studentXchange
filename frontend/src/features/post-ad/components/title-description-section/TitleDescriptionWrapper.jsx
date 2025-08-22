@@ -1,6 +1,11 @@
 import clsx from "clsx";
 
-function TitleDiscriptionSections() {
+function TitleDiscriptionSections({
+  title,
+  setTitle,
+  description,
+  setDescription,
+}) {
   return (
     <div
       className={clsx("flex flex-col w-full sm:max-w-[700px] gap-3", "mx-auto")}
@@ -29,8 +34,9 @@ function TitleDiscriptionSections() {
           <input
             type="text"
             placeholder="title"
-            onChange={(e) => (e.target.value += "")}
-            value={""}
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             className={clsx(
               "p-3",
               "flex-1",
@@ -43,9 +49,9 @@ function TitleDiscriptionSections() {
         <div className={clsx("flex flex-col space-y-3")}>
           <div>Description</div>
           <textarea
-            name=""
-            value={""}
-            onChange={(e) => (e.target.value += "")}
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             placeholder="description"
             className={clsx(
               "p-3 rounded-md",

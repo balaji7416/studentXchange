@@ -1,9 +1,6 @@
 import clsx from "clsx";
-import { useState } from "react";
 
-function PriceInput() {
-  const [price, setPrice] = useState(null);
-
+function PriceInput({ price, setPrice }) {
   return (
     <div
       className={clsx(
@@ -36,6 +33,7 @@ function PriceInput() {
         </div>
         <input
           type="number"
+          name="price"
           required
           min={0}
           placeholder="enter price"

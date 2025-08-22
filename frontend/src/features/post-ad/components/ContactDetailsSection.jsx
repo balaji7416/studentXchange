@@ -1,8 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
+import { useAuth } from "../../../hooks/useAuth";
 
-function ContactDetailsSection() {
+function ContactDetailsSection({ contactDetails, setContactDetails }) {
+  const { phone = "", email = "" } = contactDetails || {};
+  const { user } = useAuth();
+  const name = user?.username || "";
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setContactDetails({
+      ...contactDetails,
+      [name]: value,
+    });
+  };
+
   return (
     <div
       className={clsx("flex flex-col items-center justify-center  gap-3 p-3")}
@@ -27,8 +40,9 @@ function ContactDetailsSection() {
         </div>
         <input
           type="text"
-          value={"username"}
-          onChange={(e) => (e.target.value += "")}
+          value={name}
+          name="name"
+          onChange={handleInputChange}
           className={clsx(
             "p-3 rounded-md",
             "w-auto md:w-full md:max-w-[300px]",
@@ -49,8 +63,9 @@ function ContactDetailsSection() {
       >
         <input
           type="email"
-          value={""}
-          onChange={(e) => (e.target.value += "")}
+          name="email"
+          value={email}
+          onChange={handleInputChange}
           placeholder="email"
           className={clsx(
             "p-3 rounded-md",
@@ -62,11 +77,16 @@ function ContactDetailsSection() {
         />
         <input
           type="tel"
+          name="phone"
+          value={phone}
+          onChange={(e) => {
+            e.target.value = e.target.value.replace(/\D/g, "");
+            handleInputChange(e);
+          }}
           maxLength={10}
           inputMode="numeric"
           pattern="[0-9]{10}"
           placeholder="phone number"
-          onChange={(e) => (e.target.value = e.target.value.replace(/\D/g, ""))}
           className={clsx(
             "p-3 rounded-md",
             "w-auto md:w-full md:max-w-[400px]",

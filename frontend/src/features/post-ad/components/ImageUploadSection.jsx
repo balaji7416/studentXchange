@@ -3,19 +3,23 @@ import { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
-function ImageUploadSection() {
+function ImageUploadSection({ images = "", setImages }) {
   const [filename, setFilename] = useState("");
   const fileRef = useRef(null);
 
   const handleFileChange = (e) => {
-    if (e.target.files.length > 0) {
-      setFilename(e.target.files[0].name);
+    const files = Array.from(e.target.files);
+    if (files.length > 0) {
+      setFilename(files.map((file) => file.name).join("_"));
+      setImages([...images, ...files]);
     } else {
+      console.log("no file chosen");
       setFilename("no file chosen");
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     fileRef.current.click();
   };
 
@@ -44,18 +48,19 @@ function ImageUploadSection() {
       <div
         className={clsx(
           "font-semibold",
-          filename ? "text-green-500:" : "text-red-400"
+          filename ? "text-green-500" : "text-red-400"
         )}
       >
         {filename}
       </div>
       <input
         type="file"
-        required
+        name="images"
         ref={fileRef}
         onChange={handleFileChange}
         className={clsx("hidden")}
         accept="image/*"
+        multiple
       />
     </div>
   );

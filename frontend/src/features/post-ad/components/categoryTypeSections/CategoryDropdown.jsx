@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CategoryDropDown({
   categoryOpen,
-  setCategoryValue,
+  setCategory,
   setCategoryOpen,
   handleChange,
 }) {
@@ -24,7 +24,7 @@ function CategoryDropDown({
         <button
           type="button"
           onClick={() => {
-            setCategoryValue(name);
+            setCategory(name);
             setCategoryOpen(false);
             handleChange(name);
           }}

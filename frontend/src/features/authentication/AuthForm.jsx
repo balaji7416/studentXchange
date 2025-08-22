@@ -1,13 +1,34 @@
 import clsx from "clsx";
-import { handleFormSubmit } from "./AuthLogic";
 import { useState } from "react";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 function AuthForm() {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const { login, register } = useAuth();
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    isSignUp ? register(formData) : login(formData);
+  };
+
   const navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div
       className={clsx(
@@ -58,6 +79,7 @@ function AuthForm() {
           {isSignUp && (
             <input
               type="text"
+              name="username"
               required
               className={clsx(
                 "p-3 border-2 rounded-md border-gray-200 ",
@@ -67,11 +89,13 @@ function AuthForm() {
                 "focus:ring-2 focus:ring-blue-500 focus:border-opacity-0"
               )}
               placeholder="Username"
+              onChange={handleChange}
             />
           )}
 
           <input
             type="email"
+            name="email"
             required
             className={clsx(
               "p-3 border-2 rounded-md border-gray-200 ",
@@ -81,9 +105,11 @@ function AuthForm() {
               "focus:ring-2 focus:ring-blue-500 focus:border-opacity-0"
             )}
             placeholder="email"
+            onChange={handleChange}
           />
           <input
             type="password"
+            name="password"
             required
             className={clsx(
               "p-3 border-2 rounded-md border-gray-200 ",
@@ -93,6 +119,7 @@ function AuthForm() {
               "focus:ring-2 focus:ring-blue-500 focus:border-opacity-0"
             )}
             placeholder="password"
+            onChange={handleChange}
           />
         </div>
         <button
