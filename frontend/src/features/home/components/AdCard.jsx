@@ -33,12 +33,14 @@ function Card({
   title,
   price,
   location,
+  id,
   postedDate = `${Date.now()}`,
 }) {
   const date = getTimeAgo(postedDate);
   return (
-    <Link
-      to="/adview"
+    <div
+      key={id}
+      imgsrc={imgSrc}
       className={clsx(
         "flex flex-col ",
 
@@ -52,11 +54,16 @@ function Card({
       )}
     >
       <div className={clsx("w-full h-2/3 p-1")}>
-        <img
-          src={imgSrc}
-          alt={alt}
-          className={clsx("object-contain w-full h-full rounded-md")}
-        ></img>
+        <Link
+          to={`/adview/${id}`}
+          state={{ imgSrc, title, price, location, postedDate }}
+        >
+          <img
+            src={imgSrc}
+            alt={alt}
+            className={clsx("object-contain w-full h-full rounded-md")}
+          ></img>
+        </Link>
       </div>
       <div className="h-1/3">
         <div className="flex flex-col items-start w-full p-1 mt-1">
@@ -91,7 +98,7 @@ function Card({
           )}
         />
       </button>
-    </Link>
+    </div>
   );
 }
 

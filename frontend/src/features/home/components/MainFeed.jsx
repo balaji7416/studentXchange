@@ -120,7 +120,7 @@ function MainFeed() {
                     title={title}
                     price={price}
                     location={location}
-                    key={_id}
+                    id={_id}
                     postedDate={createdAt}
                   />
                 )
@@ -133,7 +133,7 @@ function MainFeed() {
                     title={title}
                     price={price}
                     location={location}
-                    key={id}
+                    id={id}
                     postedDate={postedDate}
                   />
                 )

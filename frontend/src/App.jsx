@@ -18,9 +18,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/adview/:id" element={<AdView />} />
         </Route>
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/adview" element={<AdView />} />
       </Routes>
     </>
   );
